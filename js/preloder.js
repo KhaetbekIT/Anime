@@ -1,9 +1,15 @@
 console.clear()
 
-const preloder = document.querySelector(".preloder")
+const PreloaderFunc = () => {
+    const preloder = document.querySelector(".preloder")
 
-preloder.classList.add("active")
+    const swiper = 1
 
-setTimeout(() => {
-    preloder.classList.remove("active")
-}, 10000)
+    preloder.classList.add("active")
+
+    setTimeout(() => {
+        preloder.classList.remove("active")
+    }, 10000)
+}
+
+PreloaderFunc()
