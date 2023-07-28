@@ -1,19 +1,23 @@
-const modal = document.querySelector(".search-model")
+const ModalFunc = () => {
+    const modal = document.querySelector(".search-model")
 
-const modalBtn = document.querySelector(".icon_search")
+    const modalBtn = document.querySelector(".icon_search")
 
-const modalClose = modal.querySelector(".search-close-switch")
+    const modalClose = modal.querySelector(".search-close-switch")
 
-const modalInput = modal.querySelector("#search-input")
+    const modalInput = modal.querySelector("#search-input")
 
-modalBtn.addEventListener("click", () => {
-    modal.classList.toggle("d-block")
-})
+    modalBtn.addEventListener("click", () => {
+        modal.classList.toggle("d-block")
+    })
 
-modalClose.addEventListener("click", () => {
-    modal.classList.remove("d-block")
-})
+    modalClose.addEventListener("click", () => {
+        modal.classList.remove("d-block")
+    })
 
-modalInput.addEventListener("keyup", e => {
-    console.log(e.target.value);
-})
+    modalInput.addEventListener("keyup", e => {
+        console.log(e.target.value);
+    })
+}
+
+ModalFunc()
