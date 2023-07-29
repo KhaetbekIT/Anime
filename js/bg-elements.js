@@ -1,13 +1,7 @@
 const BackgroundFunc = () => {
     const elements = document.querySelectorAll(".set-bg")
 
-    for (let i = 0; i < elements.length; i++) {
-        const element = elements[i];
-
-        const src = element.dataset.setbg
-
-        element.style.backgroundImage = `url(./${src})`
-    }
+    elements.forEach(element => element.style.backgroundImage = `url(${element.dataset.setbg})`)
 }
 
 BackgroundFunc()
