@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="./js/modal.js" defer></script>
+    <script src="./js/scroller.js" defer></script>
+    <script src="./js/categories-data.js" defer></script>
 </head>
 
 <body>
@@ -47,7 +50,7 @@
                                     <a href="./categories.html">
                                         Categories <span class="arrow_carrot-down"></span>
                                     </a>
-                                    
+
                                     <ul class="dropdown" id="dropdown-js">
                                         <!-- Не нужно -->
                                     </ul>
@@ -90,7 +93,7 @@
                 <div class="col-lg-8" id="product-container-js">
                     <!-- Не нужно -->
                 </div>
-                </div>
+
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="product__sidebar">
                         <div class="product__sidebar__view">
@@ -104,6 +107,8 @@
                     </div>
                 </div>
             </div>
+            
+        </div>
         </div>
     </section>
     <!-- Product Section End -->
@@ -149,6 +154,8 @@
         const params = new URLSearchParams(window.location.search)
         console.log(params.get("ganre"));
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/seamless-scroll-polyfill@latest"></script>
 </body>
 
 </html>
