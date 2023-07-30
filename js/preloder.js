@@ -5,11 +5,9 @@ const PreloaderFunc = () => {
 
     const swiper = 1
 
-    preloder.classList.add("active")
-
     setTimeout(() => {
         preloder.classList.remove("active")
-    }, 10000)
+    }, 5000)
 }
 
 PreloaderFunc()
