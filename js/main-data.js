@@ -1,6 +1,6 @@
 const MainDataFunc = async () => {
 
-    const url = location.origin + "/db.json"
+    const url = "../db.json"
 
     const RenderGanreList = (ganres) => {
         const dropDownBlock = document.querySelector("#dropdown-js")
