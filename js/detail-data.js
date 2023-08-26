@@ -1,5 +1,5 @@
 const DetailDataFunc = async () => {
-    const url = "../db.json"
+    const url = "./db.json"
 
     const preloder = document.querySelector(".preloder")
 
