@@ -1,5 +1,5 @@
 const DetailDataFunc = async () => {
-    const url = `https://anime-b7fa6-default-rtdb.firebaseio.com`
+    const url = location.origin + "/db.json"
 
     const preloder = document.querySelector(".preloder")
 
@@ -63,13 +63,12 @@ const DetailDataFunc = async () => {
         }
     }
 
-    await fetch(`${url}/anime.json`).then(response => response.json()).then(data => {
+    await fetch(url).then(response => response.json()).then(anime => {
+        const data = anime.anime
 
         const ganres = new Set()
 
         const ganreParams = new URLSearchParams(window.location.search).get('itemId')
-
-
 
         data.forEach(item => ganres.add(item.ganre))
 
