@@ -1,5 +1,5 @@
 const DetailDataFunc = async () => {
-    const url = "./db.json"
+    const url = `https://khaetbek-products-default-rtdb.firebaseio.com`
 
     const preloder = document.querySelector(".preloder")
 
@@ -63,8 +63,7 @@ const DetailDataFunc = async () => {
         }
     }
 
-    await fetch(url).then(response => response.json()).then(anime => {
-        const data = anime.anime
+    await fetch(`${url}/anime.json`).then(response => response.json()).then(data => {
 
         const ganres = new Set()
 

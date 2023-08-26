@@ -1,5 +1,5 @@
 const CategoriesDataFunc = async () => {
-    const url = "./db.json"
+    const url = `https://khaetbek-products-default-rtdb.firebaseio.com`
 
     const RenderGanreList = (ganres) => {
         const dropDownBlock = document.querySelector("#dropdown-js")
@@ -96,9 +96,7 @@ const CategoriesDataFunc = async () => {
         container.querySelectorAll('.set-bg').forEach(element => element.style.backgroundImage = `url(${element.dataset.setbg})`)
     }
 
-    await fetch(url).then(response => response.json()).then(anime => {
-
-        const data = anime.anime
+    await fetch(`${url}/anime.json`).then(response => response.json()).then(data => {
 
         const ganres = new Set()
 
