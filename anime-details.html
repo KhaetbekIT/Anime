@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/modal.css" type="text/css">
+    <link rel="shortcut icon" href="https://www.whpchust.ru/favicon.svg" type="image/x-icon">
     <script src="./js/anime_details.js" defer></script>
 </head>
 
@@ -88,7 +90,8 @@
             <div class="anime__details__content">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="anime__details__pic set-bg" data-setbg="img/anime/details-pic.jpg" id="anime__details__pic-js">
+                        <div class="anime__details__pic set-bg" data-setbg="img/anime/details-pic.jpg"
+                            id="anime__details__pic-js">
                             <div class="view"><i class="fa fa-eye"></i> 9141</div>
                         </div>
                     </div>
@@ -112,8 +115,7 @@
                                             <li><span>Genre:</span> Action, Adventure, Fantasy, Magic</li>
                                         </ul>
                                     </div>
-                                    <div class="col-lg-6 col-md-6">
-                                    </div>
+                                    <!-- <div class="col-lg-6 col-md-6"></div> -->
                                 </div>
                             </div>
                         </div>
@@ -148,7 +150,8 @@
                         Copyright &copy;
                         <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
                         is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
+                            target="_blank">Colorlib</a>. Refactoring by <a href="https://www.whpchust.ru/"
+                            target="_blank">Khaetbek</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
 
@@ -168,6 +171,15 @@
         </div>
     </div>
     <!-- Search model end -->
+
+    <!-- Video modal Begin -->
+    <div class="modal-backdrop fade video-modal-backgrop d-flex justify-content-center align-items-center"
+        id="video-backdrop">
+        <div class="col-6">
+            <video src="videos/default-video.mp4" class="videoholder" controls poster="img/video-poster.jpg" id="video"></video>
+        </div>
+    </div>
+    <!-- Vide modal end -->
 
     <!-- Js Plugins -->
     <script src="./libs/seamless-scroll-polyfill.js" defer></script>
