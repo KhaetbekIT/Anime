@@ -5,8 +5,6 @@ const { PreloaderFunc } = require("./module/preloder");
 const { default: ScrollerFunc } = require("./module/scroller");
 const { SliderFunc } = require("./module/slider");
 
-PreloaderFunc()
-
 BackgroundFunc()
 
 ModalFunc()
@@ -16,3 +14,5 @@ ScrollerFunc()
 SliderFunc()
 
 MainDataFunc()
+
+PreloaderFunc()

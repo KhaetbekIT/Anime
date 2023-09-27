@@ -1,5 +1,7 @@
+import axios from "axios"
+import { API } from "./api"
+
 const DetailDataFunc = async () => {
-    const url = `https://khaetbek-products-default-rtdb.firebaseio.com`
 
     const preloder = document.querySelector(".preloder")
 
@@ -63,7 +65,8 @@ const DetailDataFunc = async () => {
         }
     }
 
-    await fetch(`${url}/anime.json`).then(response => response.json()).then(data => {
+    await axios.get(API + "/anime").then(response => {
+        const data = response.data;
 
         const ganres = new Set()
 
@@ -74,11 +77,13 @@ const DetailDataFunc = async () => {
         if (ganreParams) {
             RenderAnimeDetails(data, ganreParams)
         } else {
-            console.log("error");
+            window.location.replace("/categories.html")
         }
 
         RenderGanreList(ganres)
-    }).catch(error => console.error(error))
+    }).catch(error =>{
+        throw new Error(error)
+    })
 }
 
-DetailDataFunc()
+export default DetailDataFunc;

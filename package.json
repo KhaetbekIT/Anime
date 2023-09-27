@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/KhaetbekIT/Anime#readme",
   "dependencies": {
+    "axios": "^1.5.1",
     "json-server": "^0.17.3",
     "path": "^0.12.7",
     "swiper": "^10.3.0",

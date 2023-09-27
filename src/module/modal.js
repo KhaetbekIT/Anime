@@ -20,4 +20,4 @@ const ModalFunc = () => {
     })
 }
 
-export default ModalFunc
+export default ModalFunc;

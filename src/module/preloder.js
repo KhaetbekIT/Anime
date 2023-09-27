@@ -7,5 +7,5 @@ export const PreloaderFunc = () => {
 
     setTimeout(() => {
         preloder.classList.remove("active")
-    }, 5000)
+    }, 1000)
 }
