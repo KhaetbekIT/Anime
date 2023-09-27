@@ -12,4 +12,4 @@ const ScrollerFunc = () => {
     })
 }
 
-ScrollerFunc()
+export default ScrollerFunc;

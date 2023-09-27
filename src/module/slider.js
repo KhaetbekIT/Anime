@@ -1,4 +1,5 @@
-const SliderFunc = () => {
+import Swiper from "swiper"
+export const SliderFunc = () => {
     const swiper = new Swiper('.swiper', {
         pagination: {
             el: ".swiper-pagination",
@@ -19,4 +20,3 @@ const SliderFunc = () => {
     })
 }
 
-SliderFunc()

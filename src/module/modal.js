@@ -20,4 +20,4 @@ const ModalFunc = () => {
     })
 }
 
-ModalFunc()
+export default ModalFunc

@@ -113,4 +113,4 @@ const MainDataFunc = async () => {
     }).catch(error => console.error(error))
 }
 
-MainDataFunc()
+export default MainDataFunc;
