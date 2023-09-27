@@ -27,6 +27,9 @@ const DetailDataFunc = async () => {
         const widgetList = animeText.querySelector("#widget-list-js")
         const breadCrumb = document.querySelector(".breadcrumb__links span")
 
+        const videoBackdrop = document.querySelector("#video-backdrop")
+        const video = videoBackdrop.querySelector("#video")
+
         if (animeObject) {
             imageBlock.dataset.setbg = animeObject.image
             viewBlock.innerHTML = ""
@@ -63,6 +66,19 @@ const DetailDataFunc = async () => {
         } else {
             console.log("error 2");
         }
+
+        imageBlock?.addEventListener("click", () => {
+            videoBackdrop.classList.add("show")
+        })
+
+        videoBackdrop?.addEventListener("click", e => {
+            const target = e.target
+
+            if (target && target.classList.contains("show")) {
+                videoBackdrop.classList.remove("show")
+                video?.pause()
+            }
+        })
     }
 
     await axios.get(API + "/anime").then(response => {
@@ -81,7 +97,7 @@ const DetailDataFunc = async () => {
         }
 
         RenderGanreList(ganres)
-    }).catch(error =>{
+    }).catch(error => {
         throw new Error(error)
     })
 }

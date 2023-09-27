@@ -1,0 +1,15 @@
+.video-modal-backgrop{
+    z-index: -1;
+}
+
+.video-modal-backgrop.show{
+    z-index: inherit;
+    opacity: 1;
+}
+
+video{
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
