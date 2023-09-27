@@ -1,0 +1,1 @@
+export const API = `https://anime-server-api.onrender.com`

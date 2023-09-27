@@ -7,7 +7,8 @@
 ```
 git clone https://github.com/KhaetbekIT/Anime.git
 ```
-
-### `!!! Не забудьте проверять`
-
-К этому проекту подключон `Cloud Firebase` через который мы получаем данные. По обычному использование `Firebase` выдаёт нам 30 дневной срок для использование `IP JSON` в котором лежит данные. Когда срок закончиться старый `IP` не будет доступный.
+### Технологий
+>   * HTML
+>   * CSS (SASS/SCSS)
+>   * JavaScript (Webpack, Json-Server, NodeJS)
+>   * Git

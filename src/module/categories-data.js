@@ -1,5 +1,7 @@
+import axios from "axios"
+import { API } from "./api"
+
 const CategoriesDataFunc = async () => {
-    const url = `https://khaetbek-products-default-rtdb.firebaseio.com`
 
     const RenderGanreList = (ganres) => {
         const dropDownBlock = document.querySelector("#dropdown-js")
@@ -96,7 +98,9 @@ const CategoriesDataFunc = async () => {
         container.querySelectorAll('.set-bg').forEach(element => element.style.backgroundImage = `url(${element.dataset.setbg})`)
     }
 
-    await fetch(`${url}/anime.json`).then(response => response.json()).then(data => {
+    await axios.get(API + "/anime").then(response => {
+
+        const data = response.data;
 
         const ganres = new Set()
 
@@ -115,7 +119,9 @@ const CategoriesDataFunc = async () => {
         }
 
         RenderGanreList(ganres)
-    }).catch(error => console.error(error))
+    }).catch(error =>{
+        throw new Error(error)
+    })
 }
 
-CategoriesDataFunc()
+export default CategoriesDataFunc;
