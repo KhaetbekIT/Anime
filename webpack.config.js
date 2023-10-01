@@ -7,7 +7,8 @@ module.exports = {
         anime_details: './anime-details.js',
         categories: './categories.js',
         index: "./index.js",
-        login: "./login.js"
+        login: "./login.js",
+        ["sign-up"]: "./sign-up.js"
 
     },
     output: {

@@ -20,12 +20,12 @@
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="shortcut icon" href="https://www.whpchust.ru/favicon.svg" type="image/x-icon">
-    <script src="./js/categories.js" defer></script>
+    <script src="./js/sign-up.js" defer></script>
 </head>
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder" class="preloder active">
+    <div id="preloder" class="preloder">
         <div class="loader"></div>
     </div>
 
@@ -67,47 +67,49 @@
     </header>
     <!-- Header End -->
 
-    <!-- Breadcrumb Begin -->
-    <div class="breadcrumb-option">
+    <!-- Normal Breadcrumb Begin -->
+    <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="normal__breadcrumb__text">
+                        <h2>Sign up</h2>
+                        <p>Welcome to the official Anime blog.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Normal Breadcrumb End -->
+
+    <!-- Login Section Begin -->
+    <section class="login spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="breadcrumb__links">
-                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                        <span>Categories</span>
+                    <div class="login__form">
+                        <h3>Sign up</h3>
+                        <form id="sign-js">
+                            <div class="input__item">
+                                <input type="text" placeholder="Email address" id="email-js">
+                                <span class="icon_mail"></span>
+                            </div>
+                            <div class="input__item">
+                                <input type="text" placeholder="User login" id="login-js">
+                                <span class="icon_lock"></span>
+                            </div>
+                            <div class="input__item">
+                                <input type="text" placeholder="Password" id="password-js">
+                                <span class="icon_lock"></span>
+                            </div>
+                            <button type="submit" class="site-btn" id="sign-btn-js">SIgn up now</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Breadcrumb End -->
-
-    <!-- Product Section Begin -->
-    <section class="product-page spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8" id="product-container-js">
-                    <!-- Не нужно -->
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="product__sidebar">
-                        <div class="product__sidebar__view">
-                            <div class="section-title">
-                                <h5>Top Views</h5>
-                            </div>
-                            <div class="filter__gallery" id="fillter-gallery-js">
-                                <!-- Не нужно -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
         </div>
     </section>
-    <!-- Product Section End -->
+    <!-- Login Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer">
@@ -157,11 +159,6 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script>
-        const params = new URLSearchParams(window.location.search)
-        console.log(params.get("ganre"));
-    </script>
-
     <script src="./libs/seamless-scroll-polyfill.js" defer></script>
 </body>
 

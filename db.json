@@ -570,7 +570,8 @@
       {
          "login": "User",
          "password": "1234",
-         "email": "test@mail.ru"
+         "email": "test@mail.ru",
+         "id": 1
       }
    ]
 }

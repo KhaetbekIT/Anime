@@ -15,7 +15,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const { BackgroundFunc } = __webpack_require__(/*! ./module/bg-elements */ \"./module/bg-elements.js\");\nconst { default: MainDataFunc } = __webpack_require__(/*! ./module/main-data */ \"./module/main-data.js\");\nconst { default: ModalFunc } = __webpack_require__(/*! ./module/modal */ \"./module/modal.js\");\n// const { PreloaderFunc } = require(\"./module/preloder\");\nconst { default: ScrollerFunc } = __webpack_require__(/*! ./module/scroller */ \"./module/scroller.js\");\nconst { SliderFunc } = __webpack_require__(/*! ./module/slider */ \"./module/slider.js\");\n\nBackgroundFunc()\n\nModalFunc()\n\nScrollerFunc()\n\nSliderFunc()\n\nMainDataFunc()\n\n//# sourceURL=webpack:///./index.js?");
+eval("const { BackgroundFunc } = __webpack_require__(/*! ./module/bg-elements */ \"./module/bg-elements.js\");\nconst { LoginOut, LoginInit } = __webpack_require__(/*! ./module/login */ \"./module/login.js\");\nconst { default: MainDataFunc } = __webpack_require__(/*! ./module/main-data */ \"./module/main-data.js\");\nconst { default: ModalFunc } = __webpack_require__(/*! ./module/modal */ \"./module/modal.js\");\nconst { default: ScrollerFunc } = __webpack_require__(/*! ./module/scroller */ \"./module/scroller.js\");\nconst { SliderFunc } = __webpack_require__(/*! ./module/slider */ \"./module/slider.js\");\n\nBackgroundFunc()\n\nModalFunc()\n\nScrollerFunc()\n\nSliderFunc()\n\nMainDataFunc()\n\nLoginInit()\nLoginOut()\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("const { BackgroundFunc } = __webpack_require__(/*! ./module/bg-elements */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   API: () => (/* binding */ API)\n/* harmony export */ });\nconst API = `https://anime-server-api.onrender.com`\n\n//# sourceURL=webpack:///./module/api.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   API: () => (/* binding */ API)\n/* harmony export */ });\nconst API = `https://anime-server-api.onrender.com`\n\n\n\n//# sourceURL=webpack:///./module/api.js?");
 
 /***/ }),
 
@@ -38,6 +38,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   BackgroundFunc: () => (/* binding */ BackgroundFunc)\n/* harmony export */ });\nconst BackgroundFunc = () => {\n    const elements = document.querySelectorAll(\".set-bg\")\n\n    elements.forEach(element => element.style.backgroundImage = `url(${element.dataset.setbg})`)\n}\n\n//# sourceURL=webpack:///./module/bg-elements.js?");
+
+/***/ }),
+
+/***/ "./module/login.js":
+/*!*************************!*\
+  !*** ./module/login.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   CheckUserLogin: () => (/* binding */ CheckUserLogin),\n/* harmony export */   LoginInit: () => (/* binding */ LoginInit),\n/* harmony export */   LoginOut: () => (/* binding */ LoginOut)\n/* harmony export */ });\nconst LoginInit = () => {\n    const LoginElement = document.querySelector(\"#login-js\");\n\n    const User = JSON.parse(localStorage.getItem(\"user\"))\n\n    if (User && User.login && User.password) {\n        LoginElement.outerHTML = LoginElement.outerHTML.replace(/a/, \"button\")\n    }\n}\n\nconst LoginOut = () => {\n    const LoginElement = document.querySelector(\"button#login-js\");\n\n    LoginElement?.addEventListener(\"click\", () => {\n        localStorage.removeItem(\"user\")\n        localStorage.removeItem(\"admin\")\n        window.location.replace(\"/\")\n    })\n}\n\nconst CheckUserLogin = () => {\n    const User = JSON.parse(localStorage.getItem(\"user\"))\n\n    if (User && User.login && User.password) {\n        window.location.replace(\"/\")\n    }\n}\n\n\n\n//# sourceURL=webpack:///./module/login.js?");
 
 /***/ }),
 
