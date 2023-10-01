@@ -1,9 +1,8 @@
 import axios from "axios"
 import { API } from "./api"
+import { PreloaderFunc } from "./preloder"
 
 const DetailDataFunc = async () => {
-
-    const preloder = document.querySelector(".preloder")
 
     const RenderGanreList = (ganres) => {
         const dropDownBlock = document.querySelector("#dropdown-js")
@@ -60,9 +59,7 @@ const DetailDataFunc = async () => {
 
             document.querySelectorAll('.set-bg').forEach(element => element.style.backgroundImage = `url(${element.dataset.setbg})`)
 
-            setTimeout(() => {
-                preloder.classList.remove("active")
-            }, 10000)
+            PreloaderFunc()
         } else {
             console.log("error 2");
         }
