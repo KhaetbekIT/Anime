@@ -10,16 +10,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./categories.js":
-/*!***********************!*\
-  !*** ./categories.js ***!
-  \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module_preloder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/preloder */ \"./module/preloder.js\");\n/* harmony import */ var _module_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./module/modal */ \"./module/modal.js\");\n/* harmony import */ var _module_scroller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./module/scroller */ \"./module/scroller.js\");\n/* harmony import */ var _module_categories_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./module/categories-data */ \"./module/categories-data.js\");\n/* harmony import */ var _module_login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./module/login */ \"./module/login.js\");\n\n\n\n\n\n\n(0,_module_preloder__WEBPACK_IMPORTED_MODULE_0__.PreloaderFunc)()\n\n;(0,_module_modal__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\n\n;(0,_module_scroller__WEBPACK_IMPORTED_MODULE_2__[\"default\"])()\n\n;(0,_module_categories_data__WEBPACK_IMPORTED_MODULE_3__[\"default\"])()\n\n;(0,_module_login__WEBPACK_IMPORTED_MODULE_4__.LoginInit)()\n;(0,_module_login__WEBPACK_IMPORTED_MODULE_4__.LoginOut)()\n\n//# sourceURL=webpack:///./categories.js?");
-
-/***/ }),
-
 /***/ "./module/api.js":
 /*!***********************!*\
   !*** ./module/api.js ***!
@@ -27,16 +17,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   API: () => (/* binding */ API)\n/* harmony export */ });\nconst API = `https://anime-server-api.onrender.com`\n\n\n\n//# sourceURL=webpack:///./module/api.js?");
-
-/***/ }),
-
-/***/ "./module/categories-data.js":
-/*!***********************************!*\
-  !*** ./module/categories-data.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ \"../node_modules/axios/lib/axios.js\");\n/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api */ \"./module/api.js\");\n\n\n\nconst CategoriesDataFunc = async () => {\n\n    const RenderGanreList = (ganres) => {\n        const dropDownBlock = document.querySelector(\"#dropdown-js\")\n\n        dropDownBlock.innerHTML = \"\"\n\n        ganres.forEach(ganre => {\n            dropDownBlock.insertAdjacentHTML(\"beforeend\", `\n                <li><a href=\"./categories.html?ganre=${ganre}\">${ganre}</a></li>\n            `)\n        })\n    }\n\n    const RenderAnimeList = (array = [], ganres = {}) => {\n        const container = document.querySelector(\"#product-container-js\")\n\n        container.innerHTML = \"\"\n\n        ganres.forEach((ganre) => {\n            const productBlock = document.createElement('div')\n\n            const listBlock = document.createElement(\"div\")\n\n            const list = array.filter(item => item.tags.includes(ganre))\n\n            listBlock.classList.add(\"row\")\n\n            productBlock.classList.add(\"mb-5\")\n\n            productBlock.insertAdjacentHTML(\"beforeend\", `\n                <div class=\"row\">\n                    <div class=\"col-lg-8 col-md-8 col-sm-8\">\n                        <div class=\"section-title\">\n                            <h4>${ganre}</h4>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-4 col-md-4 col-sm-4\">\n                        <div class=\"btn__all\">\n                            <a href=\"./categories.html?ganre=${ganre}\" class=\"primary-btn\">View All <span class=\"arrow_right\"></span></a>\n                        </div>\n                    </div>\n                </div>\n            `)\n\n            list.forEach(item => {\n                const ulBlock = document.createElement(\"ul\")\n\n                item.tags.forEach(tag => {\n                    ulBlock.insertAdjacentHTML(\"beforeend\", `\n                        <li>${tag}</li>\n                    `)\n                })\n\n                listBlock.insertAdjacentHTML(\"beforeend\", `\n                    <div class=\"col-lg-4 col-md-6 col-sm-6\">\n                        <div class=\"product__item\">\n                            <div class=\"product__item__pic set-bg\" data-setbg=\"${item.image}\">\n                                <div class=\"ep\">${item.rating} / 10</div>\n                                <div class=\"view\"><i class=\"fa fa-eye\"></i> ${item.views} </div>\n                            </div>\n                            <div class=\"product__item__text\">\n                                ${ulBlock.outerHTML}\n                                <h5><a href=\"./anime-details.html?itemId=${item.id}\">${item.title}</a>\n                                </h5>\n                            </div>\n                        </div>\n                    </div>\n                `)\n            })\n\n            productBlock.append(listBlock)\n\n            container.append(productBlock)\n\n            container.querySelectorAll('.set-bg').forEach(element => element.style.backgroundImage = `url(${element.dataset.setbg})`)\n        })\n    }\n\n    const RenderTopANime = (array = []) => {\n        const container = document.querySelector(\"#fillter-gallery-js\")\n\n        array.forEach(item => {\n            // day years\n            container.insertAdjacentHTML(\"beforeend\", `\n                <div class=\"product__sidebar__view__item set-bg mix \"\n                    data-setbg=\"${item.image}\">\n                    <div class=\"ep\">${item.rating} / 10</div>\n                    <div class=\"view\"><i class=\"fa fa-eye\"></i>${item.views}</div>\n                    <h5><a href=\"/anime-details.html\">${item.title}</a></h5>\n                </div>\n            `)\n        })\n\n        container.querySelectorAll('.set-bg').forEach(element => element.style.backgroundImage = `url(${element.dataset.setbg})`)\n    }\n\n    await axios__WEBPACK_IMPORTED_MODULE_1__[\"default\"].get(_api__WEBPACK_IMPORTED_MODULE_0__.API + \"/anime\").then(response => {\n\n        const data = response.data;\n\n        const ganres = new Set()\n\n        const ganreParams = new URLSearchParams(window.location.search).get('ganre')\n\n\n\n        data.forEach(item => ganres.add(item.ganre))\n\n        RenderTopANime(data.sort((a, b) => b.views - a.views).slice(0, 5))\n\n        if (ganreParams) {\n            RenderAnimeList(data, [ganreParams])\n        } else {\n            RenderAnimeList(data, ganres)\n        }\n\n        RenderGanreList(ganres)\n    }).catch(error =>{\n        throw new Error(error)\n    })\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CategoriesDataFunc);\n\n//# sourceURL=webpack:///./module/categories-data.js?");
 
 /***/ }),
 
@@ -50,26 +30,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./module/modal.js":
-/*!*************************!*\
-  !*** ./module/modal.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst ModalFunc = () => {\n    const modal = document.querySelector(\".search-model\")\n\n    const modalBtn = document.querySelector(\".icon_search\")\n\n    const modalClose = modal.querySelector(\".search-close-switch\")\n\n    const modalInput = modal.querySelector(\"#search-input\")\n\n    modalBtn.addEventListener(\"click\", () => {\n        modal.classList.toggle(\"d-block\")\n    })\n\n    modalClose.addEventListener(\"click\", () => {\n        modal.classList.remove(\"d-block\")\n    })\n\n    modalInput.addEventListener(\"keyup\", e => {\n        console.log(e.target.value);\n    })\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalFunc);\n\n//# sourceURL=webpack:///./module/modal.js?");
-
-/***/ }),
-
-/***/ "./module/preloder.js":
-/*!****************************!*\
-  !*** ./module/preloder.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   PreloaderFunc: () => (/* binding */ PreloaderFunc)\n/* harmony export */ });\nconst PreloaderFunc = () => {\n    const preloder = document.querySelector(\".preloder\")\n\n    const swiper = 1\n\n    setTimeout(() => {\n        preloder.classList.remove(\"active\")\n    }, 1000)\n}\n\n\n\n//# sourceURL=webpack:///./module/preloder.js?");
-
-/***/ }),
-
 /***/ "./module/scroller.js":
 /*!****************************!*\
   !*** ./module/scroller.js ***!
@@ -77,6 +37,46 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst ScrollerFunc = () => {\n    const scrollerButton = document.querySelector(\"#scrollToTopButton\")\n\n    scrollerButton.addEventListener(\"click\", e => {\n        e.preventDefault()\n\n        seamless.scrollIntoView(document.querySelector(\".header\"), {\n            behavior: \"smooth\",\n            block: \"center\",\n            inline: \"center\",\n        });\n    })\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ScrollerFunc);\n\n//# sourceURL=webpack:///./module/scroller.js?");
+
+/***/ }),
+
+/***/ "./module/sign-in.js":
+/*!***************************!*\
+  !*** ./module/sign-in.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   SignInFunc: () => (/* binding */ SignInFunc)\n/* harmony export */ });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"../node_modules/axios/lib/axios.js\");\n/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api */ \"./module/api.js\");\n/* harmony import */ var _login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login */ \"./module/login.js\");\n\n\n\n\nconst SignInFunc = () => {\n    const formContainer = document.querySelector(\"#sign-js\")\n\n    const login = formContainer.querySelector(\"#login-js\")\n\n    const password = formContainer.querySelector(\"#password-js\")\n\n    const signBtn = formContainer.querySelector(\"#sign-btn-js\")\n\n    ;(0,_login__WEBPACK_IMPORTED_MODULE_1__.LoginInit)()\n\n    const LoginFunc = () => {\n        axios__WEBPACK_IMPORTED_MODULE_2__[\"default\"].get(`${_api__WEBPACK_IMPORTED_MODULE_0__.API}/users`).then(response => {\n            const data = response.data;\n\n            data?.forEach((item) => {\n                if (\n                    item.login === login?.value &&\n                    item.password === password?.value &&\n                    login?.value !== \"\" &&\n                    password?.value !== \"\"\n                ) {\n\n                    localStorage.setItem(\"user\", JSON.stringify({\n                        login: login?.value,\n                        password: password?.value\n                    }))\n                    ;(0,_login__WEBPACK_IMPORTED_MODULE_1__.CheckUserLogin)()\n                    ;(0,_login__WEBPACK_IMPORTED_MODULE_1__.LoginInit)()\n\n                    login.value = \"\"\n                    password.value = \"\"\n                }\n            })\n        })\n\n        axios__WEBPACK_IMPORTED_MODULE_2__[\"default\"].get(`${_api__WEBPACK_IMPORTED_MODULE_0__.API}/admins`).then(response => {\n            const data = response.data;\n\n            data?.forEach((item) => {\n                if (\n                    item.login === login?.value &&\n                    item.password === password?.value &&\n                    login?.value !== \"\" &&\n                    password?.value !== \"\"\n                ) {\n\n                    localStorage.setItem(\"admin\", JSON.stringify({\n                        login: login?.value,\n                        password: password?.value,\n                        paths: true\n                    }))\n                    ;(0,_login__WEBPACK_IMPORTED_MODULE_1__.LoginInit)()\n\n                    login.value = \"\"\n                    password.value = \"\"\n                }\n            })\n\n        })\n    }\n\n    signBtn?.addEventListener(\"click\", (e) => {\n        e.preventDefault()\n        LoginFunc()\n    })\n\n    ;(0,_login__WEBPACK_IMPORTED_MODULE_1__.CheckUserLogin)()\n\n}\n\n\n\n//# sourceURL=webpack:///./module/sign-in.js?");
+
+/***/ }),
+
+/***/ "./module/sign-up.js":
+/*!***************************!*\
+  !*** ./module/sign-up.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   SignUpFunc: () => (/* binding */ SignUpFunc)\n/* harmony export */ });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ \"../node_modules/axios/lib/axios.js\");\n/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api */ \"./module/api.js\");\n\n\n\nconst SignUpFunc = () => {\n    const formContainer = document.querySelector(\"#sign-js\")\n\n    const email = formContainer.querySelector(\"#email-js\")\n\n    const login = formContainer.querySelector(\"#login-js\")\n\n    const password = formContainer.querySelector(\"#password-js\")\n\n    const addBtn = formContainer.querySelector(\"#sign-btn-js\")\n\n    const user = {\n        login: \"User\",\n        password: \"1234\",\n        email: \"test@mail.ru\"\n    }\n\n    const CheckInputs = () => {\n        if (\n            email?.value == \"\" ||\n            login?.value == \"\" ||\n            password?.value == \"\"\n        ) {\n            addBtn.disabled = true\n        } else {\n            addBtn.disabled = false\n        }\n    }\n\n    CheckInputs()\n\n    email?.addEventListener(\"input\", () => {\n        CheckInputs()\n        user.email = email?.value\n    })\n\n    login?.addEventListener(\"input\", () => {\n        CheckInputs()\n        user.login = login?.value\n    })\n\n    password?.addEventListener(\"input\", () => {\n        CheckInputs()\n        user.password = password?.value\n    })\n\n    addBtn?.addEventListener(\"click\", () => {\n        axios__WEBPACK_IMPORTED_MODULE_1__[\"default\"].post(`${_api__WEBPACK_IMPORTED_MODULE_0__.API}/users`, user).then(() => alert(\"added user\")).catch(error => { console.log(error) })\n    })\n}\n\n\n\n//# sourceURL=webpack:///./module/sign-up.js?");
+
+/***/ }),
+
+/***/ "./module/sign.js":
+/*!************************!*\
+  !*** ./module/sign.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _sign_in__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sign-in */ \"./module/sign-in.js\");\n/* harmony import */ var _sign_up__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sign-up */ \"./module/sign-up.js\");\n\n\n\nconst SignInit = () => {\n    (0,_sign_in__WEBPACK_IMPORTED_MODULE_0__.SignInFunc)()\n    ;(0,_sign_up__WEBPACK_IMPORTED_MODULE_1__.SignUpFunc)()\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SignInit);\n\n//# sourceURL=webpack:///./module/sign.js?");
+
+/***/ }),
+
+/***/ "./sign-up.js":
+/*!********************!*\
+  !*** ./sign-up.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module_login__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/login */ \"./module/login.js\");\n/* harmony import */ var _module_scroller__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./module/scroller */ \"./module/scroller.js\");\n/* harmony import */ var _module_sign__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./module/sign */ \"./module/sign.js\");\n/* harmony import */ var _module_sign_up__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./module/sign-up */ \"./module/sign-up.js\");\n\n\n\n\n\n(0,_module_login__WEBPACK_IMPORTED_MODULE_0__.LoginInit)()\n\n;(0,_module_login__WEBPACK_IMPORTED_MODULE_0__.LoginOut)()\n\n;(0,_module_scroller__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\n\n;(0,_module_sign__WEBPACK_IMPORTED_MODULE_2__[\"default\"])()\n\n;(0,_module_sign_up__WEBPACK_IMPORTED_MODULE_3__.SignUpFunc)()\n\n//# sourceURL=webpack:///./sign-up.js?");
 
 /***/ }),
 
@@ -550,7 +550,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./categories.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./sign-up.js");
 /******/ 	
 /******/ })()
 ;

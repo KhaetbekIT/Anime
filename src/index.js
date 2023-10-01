@@ -1,7 +1,7 @@
 const { BackgroundFunc } = require("./module/bg-elements");
+const { LoginOut, LoginInit } = require("./module/login");
 const { default: MainDataFunc } = require("./module/main-data");
 const { default: ModalFunc } = require("./module/modal");
-// const { PreloaderFunc } = require("./module/preloder");
 const { default: ScrollerFunc } = require("./module/scroller");
 const { SliderFunc } = require("./module/slider");
 
@@ -14,3 +14,6 @@ ScrollerFunc()
 SliderFunc()
 
 MainDataFunc()
+
+LoginInit()
+LoginOut()
