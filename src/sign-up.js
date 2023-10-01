@@ -1,7 +1,7 @@
 import { LoginInit, LoginOut } from "./module/login";
 import ScrollerFunc from "./module/scroller";
 import SignInit from "./module/sign";
-import { SignUpFunc } from "./module/sign-up";
+// import { SignUpFunc } from "./module/sign-up";
 
 LoginInit()
 
@@ -11,4 +11,4 @@ ScrollerFunc()
 
 SignInit()
 
-SignUpFunc()
+// SignUpFunc()

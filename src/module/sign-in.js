@@ -9,12 +9,17 @@ const SignInFunc = () => {
 
     const password = formContainer.querySelector("#password-js")
 
-    const signBtn = formContainer.querySelector("#sign-btn-js")
+    const signBtn = formContainer.querySelector("#sign-in-btn-js")
+
+    const checkDouble = {
+        user: false,
+        admin: false
+    }
 
     LoginInit()
 
-    const LoginFunc = () => {
-        axios.get(`${API}/users`).then(response => {
+    const LoginFunc = async () => {
+        await axios.get(`${API}/users/`).then(response => {
             const data = response.data;
 
             data?.forEach((item) => {
@@ -25,48 +30,49 @@ const SignInFunc = () => {
                     password?.value !== ""
                 ) {
 
-                    localStorage.setItem("user", JSON.stringify({
-                        login: login?.value,
-                        password: password?.value
-                    }))
-                    CheckUserLogin()
-                    LoginInit()
-
-                    login.value = ""
-                    password.value = ""
+                    localStorage.setItem("user", JSON.stringify(item))
+                    checkDouble.user = true
                 }
             })
         })
 
-        axios.get(`${API}/admins`).then(response => {
+        await axios.get(`${API}/admins/`).then(response => {
             const data = response.data;
 
             data?.forEach((item) => {
                 if (
-                    item.login === login?.value &&
+                    item.userName === login?.value.split(" ")[0] &&
+                    item.adminLogin === login?.value &&
                     item.password === password?.value &&
                     login?.value !== "" &&
-                    password?.value !== ""
+                    password?.value !== "" &&
+                    item.admin
                 ) {
 
-                    localStorage.setItem("admin", JSON.stringify({
-                        login: login?.value,
-                        password: password?.value,
-                        paths: true
-                    }))
-                    LoginInit()
+                    localStorage.setItem("admin", JSON.stringify(item))
+                    checkDouble.admin = true
+
+                    // LoginInit()
 
                     login.value = ""
                     password.value = ""
                 }
             })
-
         })
     }
 
     signBtn?.addEventListener("click", (e) => {
         e.preventDefault()
         LoginFunc()
+
+        if(
+            checkDouble &&
+            checkDouble.admin &&
+            checkDouble.user
+        ){
+            console.log("ok");
+        }
+
     })
 
     CheckUserLogin()

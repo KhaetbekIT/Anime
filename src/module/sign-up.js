@@ -10,12 +10,14 @@ const SignUpFunc = () => {
 
     const password = formContainer.querySelector("#password-js")
 
-    const addBtn = formContainer.querySelector("#sign-btn-js")
+    const addBtn = formContainer.querySelector("#sign-up-btn-js")
 
     const user = {
-        login: "User",
+        adminLogin: "User",
         password: "1234",
-        email: "test@mail.ru"
+        email: "test@mail.ru",
+        userName: "User name",
+        admin: true
     }
 
     const CheckInputs = () => {
@@ -39,7 +41,8 @@ const SignUpFunc = () => {
 
     login?.addEventListener("input", () => {
         CheckInputs()
-        user.login = login?.value
+        user.adminLogin = login?.value
+        user.userName = login?.value.split(" ")[0]
     })
 
     password?.addEventListener("input", () => {
@@ -47,8 +50,8 @@ const SignUpFunc = () => {
         user.password = password?.value
     })
 
-    addBtn?.addEventListener("click", () => {
-        axios.post(`${API}/users`, user).then(() => alert("added user")).catch(error => { console.log(error) })
+    addBtn.addEventListener("click", () => {
+        axios.post(`${API}/admins/`, user).then(() => {alert("admin added"); window.location.replace("/")}).catch(error => alert(error))
     })
 }
 

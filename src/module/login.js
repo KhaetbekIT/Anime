@@ -20,8 +20,9 @@ const LoginOut = () => {
 
 const CheckUserLogin = () => {
     const User = JSON.parse(localStorage.getItem("user"))
+    const Admin = JSON.parse(localStorage.getItem("admin"))
 
-    if (User && User.login && User.password) {
+    if ((User && User.login && User.password) || (Admin && Admin.admin)) {
         window.location.replace("/")
     }
 }
