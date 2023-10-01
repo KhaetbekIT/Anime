@@ -1,6 +1,4 @@
-console.clear()
-
-export const PreloaderFunc = () => {
+const PreloaderFunc = () => {
     const preloder = document.querySelector(".preloder")
 
     const swiper = 1
@@ -9,3 +7,5 @@ export const PreloaderFunc = () => {
         preloder.classList.remove("active")
     }, 1000)
 }
+
+export {PreloaderFunc};

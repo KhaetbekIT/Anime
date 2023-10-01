@@ -1,5 +1,6 @@
 import axios from "axios"
 import { API } from "./api"
+import {PreloaderFunc} from "./preloder"
 
 const MainDataFunc = async () => {
 
@@ -112,6 +113,8 @@ const MainDataFunc = async () => {
         RenderAnimeList(data, ganres)
 
         RenderGanreList(ganres)
+
+        PreloaderFunc()
     }).catch(error =>{
         throw new Error(error)
     })

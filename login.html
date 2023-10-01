@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="shortcut icon" href="https://www.whpchust.ru/favicon.svg" type="image/x-icon">
+    <script src="./js/login.js" defer></script>
 </head>
 
 <body>
@@ -44,9 +45,10 @@
                         <nav class="header__menu mobile-menu">
                             <ul>
                                 <li><a href="./index.html">Homepage</a></li>
-                                <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
-                                    <ul class="dropdown">
-                                        <li><a href="./categories.html">Categories</a></li>
+                                <li class="active"><a href="./categories.html">Categories <span
+                                            class="arrow_carrot-down"></span></a>
+                                    <ul class="dropdown" id="dropdown-js">
+                                        <!-- Не нужно -->
                                     </ul>
                                 </li>
                             </ul>
@@ -153,6 +155,7 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
+    <script src="./libs/seamless-scroll-polyfill.js" defer></script>
 </body>
 
 </html>

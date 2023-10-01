@@ -56,7 +56,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   PreloaderFunc: () => (/* binding */ PreloaderFunc)\n/* harmony export */ });\nconsole.clear()\n\nconst PreloaderFunc = () => {\n    const preloder = document.querySelector(\".preloder\")\n\n    const swiper = 1\n\n    setTimeout(() => {\n        preloder.classList.remove(\"active\")\n    }, 1000)\n}\n\n//# sourceURL=webpack:///./module/preloder.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   PreloaderFunc: () => (/* binding */ PreloaderFunc)\n/* harmony export */ });\nconst PreloaderFunc = () => {\n    const preloder = document.querySelector(\".preloder\")\n\n    const swiper = 1\n\n    setTimeout(() => {\n        preloder.classList.remove(\"active\")\n    }, 1000)\n}\n\n\n\n//# sourceURL=webpack:///./module/preloder.js?");
 
 /***/ }),
 
