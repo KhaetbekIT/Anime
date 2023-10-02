@@ -193,80 +193,83 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
-                    <div class="col col-12 col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label text-light" for="video-category">Выберите категорию</label>
-                            <select class="form-select" id="video-category">
-                                <option value="default" selected="">Выберите категорию</option>
-                                <option value="0">ПРИКЛЮЧЕНИЯ</option>
-                                <option value="1">СЁНЕН</option>
-                                <option value="2">ИСТОРИЯ</option>
-                            </select>
+                <form id="form-js">
+                    <div class="row mb-3">
+                        <div class="col col-12 col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label text-light" for="video-category">Выберите категорию</label>
+                                <select class="form-select" id="video-category">
+                                    <option value="default" selected>Выберите категорию</option>
+                                    <!-- <option value="0">ПРИКЛЮЧЕНИЯ</option>
+                                    <option value="1">СЁНЕН</option>
+                                    <option value="2">ИСТОРИЯ</option> -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="video-image" class="form-label text-light">Добавьте постер</label>
+                                <input class="form-control" type="file" id="video-image">
+                            </div>
+                        </div>
+
+                        <div class="col col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="video-title" class="form-label text-light">Добавьте название</label>
+                                <input class="form-control" type="text" id="video-title">
+                            </div>
+                        </div>
+
+                        <div class="col col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="video-original-title" class="form-label text-light">Добавьте орининальное
+                                    название</label>
+                                <input class="form-control" type="text" id="video-original-title">
+                            </div>
+                        </div>
+
+                        <div class="col col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="video-tags" class="form-label text-light">Добавьте тагс</label>
+                                <input class="form-control" type="text" id="video-tags">
+                            </div>
+                        </div>
+
+                        <div class="col col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="video-year" class="form-label text-light">Добавьте год</label>
+                                <input class="form-control" type="date" id="video-year">
+                            </div>
+                        </div>
+
+                        <div class="col col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="video-rating" class="form-label text-light">Добавьте рейтинг</label>
+                                <input class="form-control" type="number" id="video-rating">
+                            </div>
+                        </div>
+
+                        <div class="col col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="video-videofile" class="form-label text-light">Добавьте видео</label>
+                                <input class="form-control" type="file" id="video-videofile">
+                            </div>
+                        </div>
+
+                        <div class="col col-12">
+                            <div class="mb-3">
+                                <label for="video-desc" class="form-label text-light">Добавьте описание</label>
+                                <textarea class="d-inline-block w-100 p-3" id="video-desc" cols="30"
+                                    rows="10"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col col-12">
+                            <button type="button" class="btn btn-danger" id="video-add-btn">Добавить</button>
                         </div>
                     </div>
-
-                    <div class="col col-12 col-md-6">
-                        <div class="mb-3">
-                            <label for="video-image" class="form-label text-light">Добавьте постер</label>
-                            <input class="form-control" type="file" id="video-image">
-                        </div>
-                    </div>
-
-                    <div class="col col-12 col-md-6">
-                        <div class="mb-3">
-                            <label for="video-title" class="form-label text-light">Добавьте название</label>
-                            <input class="form-control" type="text" id="video-title">
-                        </div>
-                    </div>
-
-                    <div class="col col-12 col-md-6">
-                        <div class="mb-3">
-                            <label for="video-original-title" class="form-label text-light">Добавьте орининальное
-                                название</label>
-                            <input class="form-control" type="text" id="video-original-title">
-                        </div>
-                    </div>
-
-                    <div class="col col-12 col-md-6">
-                        <div class="mb-3">
-                            <label for="video-tags" class="form-label text-light">Добавьте тагс</label>
-                            <input class="form-control" type="text" id="video-tags">
-                        </div>
-                    </div>
-
-                    <div class="col col-12 col-md-6">
-                        <div class="mb-3">
-                            <label for="video-year" class="form-label text-light">Добавьте год</label>
-                            <input class="form-control" type="date" id="video-year">
-                        </div>
-                    </div>
-
-                    <div class="col col-12 col-md-6">
-                        <div class="mb-3">
-                            <label for="video-rating" class="form-label text-light">Добавьте рейтинг</label>
-                            <input class="form-control" type="number" id="video-rating">
-                        </div>
-                    </div>
-
-                    <div class="col col-12 col-md-6">
-                        <div class="mb-3">
-                            <label for="video-videofile" class="form-label text-light">Добавьте видео</label>
-                            <input class="form-control" type="file" id="video-videofile">
-                        </div>
-                    </div>
-
-                    <div class="col col-12">
-                        <div class="mb-3">
-                            <label for="video-desc" class="form-label text-light">Добавьте описание</label>
-                            <textarea class="d-inline-block w-100 p-3" id="video-desc" cols="30" rows="10"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="col col-12">
-                        <button type="button" class="btn btn-danger" id="video-add-btn">Добавить</button>
-                    </div>
-                </div>
+                </form>
 
                 <div class="row">
                     <div class="col table-responsive-sm">
@@ -281,7 +284,7 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody id="category-container">
+                            <tbody id="video-container">
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>ПРИКЛЮЧЕНИЯ</td>
