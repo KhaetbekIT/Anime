@@ -26,9 +26,10 @@ const SignUpFunc = () => {
             login?.value == "" ||
             password?.value == ""
         ) {
-            addBtn.disabled = true
+
+            if (addBtn) addBtn.disabled = true
         } else {
-            addBtn.disabled = false
+            if (addBtn) addBtn.disabled = false
         }
     }
 
@@ -50,8 +51,9 @@ const SignUpFunc = () => {
         user.password = password?.value
     })
 
-    addBtn.addEventListener("click", () => {
-        axios.post(`${API}/admins/`, user).then(() => {alert("admin added"); window.location.replace("/")}).catch(error => alert(error))
+    addBtn?.addEventListener("click", (e) => {
+        e.preventDefault()
+        axios.post(`${API}/admins/`, user).then(() => { alert("admin added"); window.location.replace("/") }).catch(error => alert(error))
     })
 }
 

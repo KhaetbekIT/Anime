@@ -11,11 +11,6 @@ const SignInFunc = () => {
 
     const signBtn = formContainer.querySelector("#sign-in-btn-js")
 
-    const checkDouble = {
-        user: false,
-        admin: false
-    }
-
     LoginInit()
 
     const LoginFunc = async () => {
@@ -31,7 +26,6 @@ const SignInFunc = () => {
                 ) {
 
                     localStorage.setItem("user", JSON.stringify(item))
-                    checkDouble.user = true
                 }
             })
         })
@@ -50,9 +44,6 @@ const SignInFunc = () => {
                 ) {
 
                     localStorage.setItem("admin", JSON.stringify(item))
-                    checkDouble.admin = true
-
-                    // LoginInit()
 
                     login.value = ""
                     password.value = ""
@@ -64,15 +55,6 @@ const SignInFunc = () => {
     signBtn?.addEventListener("click", (e) => {
         e.preventDefault()
         LoginFunc()
-
-        if(
-            checkDouble &&
-            checkDouble.admin &&
-            checkDouble.user
-        ){
-            console.log("ok");
-        }
-
     })
 
     CheckUserLogin()
