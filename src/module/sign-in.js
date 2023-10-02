@@ -45,6 +45,8 @@ const SignInFunc = () => {
 
                     localStorage.setItem("admin", JSON.stringify(item))
 
+                    window.location.replace("/admin.html")
+
                     login.value = ""
                     password.value = ""
                 }

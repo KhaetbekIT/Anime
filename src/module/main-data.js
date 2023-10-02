@@ -1,20 +1,9 @@
 import axios from "axios"
 import { API } from "./api"
 import {PreloaderFunc} from "./preloder"
+import RenderGanreListFunc from "./admin/categories-lists"
 
 const MainDataFunc = async () => {
-
-    const RenderGanreList = (ganres) => {
-        const dropDownBlock = document.querySelector("#dropdown-js")
-
-        dropDownBlock.innerHTML = ""
-
-        ganres.forEach(ganre => {
-            dropDownBlock.insertAdjacentHTML("beforeend", `
-                <li><a href="./categories.html?ganre=${ganre}">${ganre}</a></li>
-            `)
-        })
-    }
 
     const RenderAnimeList = (array = [], ganres = {}) => {
         const container = document.querySelector("#product-container-js")
@@ -112,7 +101,7 @@ const MainDataFunc = async () => {
 
         RenderAnimeList(data, ganres)
 
-        RenderGanreList(ganres)
+        RenderGanreListFunc(ganres)
 
         PreloaderFunc()
     }).catch(error =>{
