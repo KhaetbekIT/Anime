@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anime | AdminPanel</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap-v5.2.3.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/modal.css" type="text/css">
+    <link rel="shortcut icon" href="https://www.whpchust.ru/favicon.svg" type="image/x-icon">
+    <script src="./js/admin.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Page Preloder -->
+    <div id="preloder" class="preloder active">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="./index.html">
+                            <img src="img/logo.png" alt="error">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li><a href="./index.html">Homepage</a></li>
+                                <li class="active"><a href="./categories.html">Categories <span
+                                            class="arrow_carrot-down"></span></a>
+                                    <ul class="dropdown" id="dropdown-js">
+                                        <!-- Не нужно -->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header__right">
+                        <!-- <a href="#" class="search-switch"><span class="icon_search"></span></a> -->
+                        <a id="login-js" href="./login.html" class="btn"><span class="icon_profile"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Main -->
+    <main>
+        <!-- Category -->
+        <section class="section-category mb-5" id="category-wrapper-js">
+
+            <div class="container">
+                <div class="row mb-3">
+                    <div class="col">
+                        <h3 class="text-light">Добавление категории</h3>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="category-name" class="form-label text-light">Введите название категории</label>
+                            <input type="text" class="form-control" id="category-name">
+                        </div>
+                    </div>
+
+                    <div class="col col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="category-image" class="form-label text-light">Добавьте картинку
+                                категории</label>
+                            <input class="form-control" type="file" id="category-image">
+                        </div>
+                    </div>
+
+                    <div class="col col-12">
+                        <button type="button" class="btn btn-danger" id="category-add-btn">Добавить</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col table-responsive-sm">
+                        <table class="table table-dark table-striped" id="category-table">
+                            <caption style="display: none;" class="text-center">Нет данных</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">№</th>
+                                    <th scope="col">Название</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="category-container">
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>ПРИКЛЮЧЕНИЯ</td>
+                                    <td class="text-end">
+                                        <button type="button" class="btn btn-danger btn-sm">
+                                            удалить
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>СЁНЕН</td>
+                                    <td class="text-end">
+                                        <button type="button" class="btn btn-danger btn-sm">
+                                            удалить
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>ИСТОРИЯ</td>
+                                    <td class="text-end">
+                                        <button type="button" class="btn btn-danger btn-sm">
+                                            удалить
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>ДЕТЕКТИВ</td>
+                                    <td class="text-end">
+                                        <button type="button" class="btn btn-danger btn-sm">
+                                            удалить
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>ФЭНТЕЗИ</td>
+                                    <td class="text-end">
+                                        <button type="button" class="btn btn-danger btn-sm">
+                                            удалить
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>ФАНТАСТИКА</td>
+                                    <td class="text-end">
+                                        <button type="button" class="btn btn-danger btn-sm">
+                                            удалить
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- // Category -->
+
+
+        <!-- video -->
+        <section class="section-video mb-4" id="video-wrapper-js">
+
+            <div class="container">
+                <div class="row mb-3">
+                    <div class="col">
+                        <h3 class="text-light">Добавление видео</h3>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col col-12 col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label text-light" for="video-category">Выберите категорию</label>
+                            <select class="form-select" id="video-category">
+                                <option value="default" selected="">Выберите категорию</option>
+                                <option value="0">ПРИКЛЮЧЕНИЯ</option>
+                                <option value="1">СЁНЕН</option>
+                                <option value="2">ИСТОРИЯ</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="video-image" class="form-label text-light">Добавьте постер</label>
+                            <input class="form-control" type="file" id="video-image">
+                        </div>
+                    </div>
+
+                    <div class="col col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="video-title" class="form-label text-light">Добавьте название</label>
+                            <input class="form-control" type="text" id="video-title">
+                        </div>
+                    </div>
+
+                    <div class="col col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="video-original-title" class="form-label text-light">Добавьте орининальное
+                                название</label>
+                            <input class="form-control" type="text" id="video-original-title">
+                        </div>
+                    </div>
+
+                    <div class="col col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="video-tags" class="form-label text-light">Добавьте тагс</label>
+                            <input class="form-control" type="text" id="video-tags">
+                        </div>
+                    </div>
+
+                    <div class="col col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="video-year" class="form-label text-light">Добавьте год</label>
+                            <input class="form-control" type="date" id="video-year">
+                        </div>
+                    </div>
+
+                    <div class="col col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="video-rating" class="form-label text-light">Добавьте рейтинг</label>
+                            <input class="form-control" type="number" id="video-rating">
+                        </div>
+                    </div>
+
+                    <div class="col col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="video-videofile" class="form-label text-light">Добавьте видео</label>
+                            <input class="form-control" type="file" id="video-videofile">
+                        </div>
+                    </div>
+
+                    <div class="col col-12">
+                        <div class="mb-3">
+                            <label for="video-desc" class="form-label text-light">Добавьте описание</label>
+                            <textarea class="d-inline-block w-100 p-3" id="video-desc" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col col-12">
+                        <button type="button" class="btn btn-danger" id="video-add-btn">Добавить</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col table-responsive-sm">
+                        <table class="table table-dark table-striped" id="video-table">
+                            <caption style="display: none;" class="text-center">Нет данных</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">№</th>
+                                    <th scope="col">Категория</th>
+                                    <th scope="col">Название</th>
+                                    <th scope="col">Просмотер</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="category-container">
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>ПРИКЛЮЧЕНИЯ</td>
+                                    <td>Доктор Стоун</td>
+                                    <td> 239894 </td>
+                                    <td class="text-end">
+                                        <button type="button" class="btn btn-danger btn-sm">
+                                            удалить
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- // Category -->
+    </main>
+    <!-- // Main -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="page-up">
+            <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer__logo">
+                        <a href="./index.html"><img src="img/logo.png" alt="error"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footer__nav">
+                        <ul>
+                            <li class="active"><a href="./index.html">Homepage</a></li>
+                            <li><a href="./categories.html">Categories</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+                        is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                            target="_blank">Colorlib</a>. Refactoring by <a href="https://www.whpchust.ru/"
+                            target="_blank">Khaetbek</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="./libs/seamless-scroll-polyfill.js" defer></script>
+
+</body>
+
+</html>

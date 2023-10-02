@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module_login__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/login */ \"./module/login.js\");\n\n\n(0,_module_login__WEBPACK_IMPORTED_MODULE_0__.LoginInit)()\n;(0,_module_login__WEBPACK_IMPORTED_MODULE_0__.LoginOut)()\n\n//# sourceURL=webpack:///./admin.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module_login__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/login */ \"./module/login.js\");\n/* harmony import */ var _module_preloder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./module/preloder */ \"./module/preloder.js\");\n\n\n\n(0,_module_login__WEBPACK_IMPORTED_MODULE_0__.LoginInit)()\n;(0,_module_login__WEBPACK_IMPORTED_MODULE_0__.LoginOut)()\n;(0,_module_preloder__WEBPACK_IMPORTED_MODULE_1__.PreloaderFunc)()\n\n//# sourceURL=webpack:///./admin.js?");
 
 /***/ }),
 
@@ -27,6 +27,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   CheckUserLogin: () => (/* binding */ CheckUserLogin),\n/* harmony export */   LoginInit: () => (/* binding */ LoginInit),\n/* harmony export */   LoginOut: () => (/* binding */ LoginOut)\n/* harmony export */ });\nconst LoginInit = () => {\n    const LoginElement = document.querySelector(\"#login-js\");\n\n    const User = JSON.parse(localStorage.getItem(\"user\"))\n\n    if (User && User.login && User.password) {\n        LoginElement.outerHTML = LoginElement.outerHTML.replace(/a/, \"button\")\n    }\n}\n\nconst LoginOut = () => {\n    const LoginElement = document.querySelector(\"button#login-js\");\n\n    LoginElement?.addEventListener(\"click\", () => {\n        localStorage.removeItem(\"user\")\n        localStorage.removeItem(\"admin\")\n        window.location.replace(\"/\")\n    })\n}\n\nconst CheckUserLogin = () => {\n    const User = JSON.parse(localStorage.getItem(\"user\"))\n    const Admin = JSON.parse(localStorage.getItem(\"admin\"))\n\n    if ((User && User.login && User.password) || (Admin && Admin.admin)) {\n        window.location.replace(\"/\")\n    }\n}\n\n\n\n//# sourceURL=webpack:///./module/login.js?");
+
+/***/ }),
+
+/***/ "./module/preloder.js":
+/*!****************************!*\
+  !*** ./module/preloder.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   PreloaderFunc: () => (/* binding */ PreloaderFunc)\n/* harmony export */ });\nconst PreloaderFunc = () => {\n    const preloder = document.querySelector(\".preloder\")\n\n    const swiper = 1\n\n    setTimeout(() => {\n        preloder.classList.remove(\"active\")\n    }, 1000)\n}\n\n\n\n//# sourceURL=webpack:///./module/preloder.js?");
 
 /***/ })
 
