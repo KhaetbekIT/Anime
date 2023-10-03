@@ -30,6 +30,16 @@ const AdminScriptFunc = () => {
             RenderSelectFunc(data, select)
         })
 
+        // @todo
+
+        axios.get(`${API}/categories/`).then(response => {
+            const data = response.data;
+            const genres = new Set()
+
+            data.filter(item => genres.add(item.name))
+            RenderGanreListFunc(genres)
+        })
+
         await axios.get(`${API}/anime`).then(response => {
             const data = response.data;
 
@@ -87,8 +97,6 @@ const AdminScriptFunc = () => {
         categoryAddBtn?.addEventListener("click", () => {
             axios.post(`${API}/categories/`, categoriesItem).then(async () => {
                 alert(`CATEGORY IS ADDED`)
-                categoryTitle.value = ""
-                categoryImage.value = ""
 
                 await axios.get(`${API}/categories/`).then(response => {
                     const data = response.data;
@@ -99,6 +107,9 @@ const AdminScriptFunc = () => {
                     const data = response.data;
                     RenderSelectFunc(data, select)
                 })
+
+                categoryTitle.value = ""
+                categoryImage.value = ""
             })
         })
 
@@ -114,6 +125,11 @@ const AdminScriptFunc = () => {
                     axios.get(`${API}/categories/`).then(response => {
                         const data = response.data;
                         RenderCategoriesFunc(data, tableContainer)
+                    })
+
+                    axios.get(`${API}/categories/`).then(response => {
+                        const data = response.data;
+                        RenderSelectFunc(data, select)
                     })
 
 
@@ -243,6 +259,10 @@ const AdminScriptFunc = () => {
             ) {
                 fileReader.addEventListener("load", () => {
                     animeItem.video = fileReader.result
+
+                    let videoBlob = new Blob([new Uint8Array(animeItem.video)], { type: 'video/mp4' });
+
+                    animeItem.video = window.URL.createObjectURL(videoBlob);
                 })
 
                 fileReader.addEventListener("error", () => {
@@ -266,15 +286,36 @@ const AdminScriptFunc = () => {
         })
 
         addVideoBtn?.addEventListener("click", () => {
-            axios.post(`${API}/anime/`, animeItem).then(() => {
+
+            axios.post(`${API}/anime/`, animeItem,).then((response) => {
                 alert(`VIDEO WAS ADDED`)
 
                 axios.get(`${API}/anime/`).then(response => {
                     const data = response.data;
-        
+
                     RenderVideosFunc(data, videoContainer)
                 })
-            }).catch(()=> alert(`ERROR: error on adding video`))
+            }).catch((error) => { alert(`ERROR: error on adding video`); console.log(error) })
+        })
+
+        videoContainer.addEventListener("click", e => {
+            if (e.target && e.target.tagName === "BUTTON") {
+                const target = e.target
+
+                const deleteIndex = target.dataset.buttonIndex;
+
+                axios.delete(`${API}/anime/${deleteIndex}`).then(() => {
+                    alert(`VIDEO WAS DELETED`);
+
+                    axios.get(`${API}/anime/`).then(response => {
+                        const data = response.data;
+
+                        RenderVideosFunc(data, videoContainer)
+                    })
+
+
+                }).catch(() => alert("ERROR: error from delete"))
+            }
         })
 
         axios.get(`${API}/anime/`).then(response => {
