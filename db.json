@@ -612,32 +612,32 @@
    "categories":[
       {
          "id": 1,
-         "name": "ПРИКЛЮЧЕНИЯ",
+         "name": "Приключения",
          "imag": "https://www.epicdope.com/wp-content/uploads/2020/06/magi-adventure-of-sinbad.jpg"
       },
       {
          "id": 2,
-         "name": "СЁНЕН",
+         "name": "Сёнен",
          "image": "https://image.winudf.com/v2/image1/Y29tLnZuOW1lbG9keS5BbmltZVRWX3NjcmVlbl8xMV8xNjIwMDExNzQwXzA1Ng/screen-7.jpg?fakeurl=1&type=.jpg"
       },
       {
          "id": 3,
-         "name": "ИСТОРИЯ",
+         "name": "История",
          "image": "https://foni.club/uploads/posts/2023-01/1673333916_foni-club-p-oboi-anime-tsikl-istorii-3.jpg"
       },
       {
          "id": 4,
-         "name": "ДЕТЕКТИВ",
+         "name": "Детектив",
          "image": "https://doonetflix.com/wp-content/uploads/2020/12/The-Millionaire-Detective-Balance-Unlimited-%E0%B8%84%E0%B8%B8%E0%B8%93%E0%B8%8A%E0%B8%B2%E0%B8%A2%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B7%E0%B8%9A-%E0%B8%A3%E0%B8%A7%E0%B8%A2%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%88%E0%B9%8D%E0%B8%B2%E0%B8%81%E0%B8%B1%E0%B8%94-3.jpg"
       },
       {
          "id": 5,
-         "name": "ФЭНТЕЗИ",
+         "name": "Фэнтези",
          "image": "https://foni.club/uploads/posts/2023-01/1674515579_foni-club-p-anime-vorld-art-1.jpg"
       },
       {
          "id": 6,
-         "name": "ФАНТАСТИКА",
+         "name": "Фантастика",
          "image": "https://i.pinimg.com/originals/5b/9c/d6/5b9cd6d302135ba61249bcacb13f1acc.jpg"
       }
    ]
