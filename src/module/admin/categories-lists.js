@@ -8,7 +8,7 @@ const RenderGanreListFunc = async () => {
 
     const checkAdmin = JSON.parse(localStorage.getItem("admin"))
 
-    if ((checkAdmin !== null || checkAdmin !== undefined)) {
+    if (checkAdmin && checkAdmin !== null) {
         dropDownBlock.innerHTML += `<li><a href="./admin.html">Админ панель</a></li>`
     }
 

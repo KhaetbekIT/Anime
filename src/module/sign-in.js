@@ -54,6 +54,10 @@ const SignInFunc = () => {
         })
     }
 
+    formContainer?.addEventListener("submit", e => {
+        e.preventDefault()
+    })
+
     signBtn?.addEventListener("click", (e) => {
         e.preventDefault()
         LoginFunc()
