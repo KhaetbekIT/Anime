@@ -30,25 +30,7 @@ const AdminScriptFunc = () => {
             RenderSelectFunc(data, select)
         })
 
-        // @todo
-
-        axios.get(`${API}/categories/`).then(response => {
-            const data = response.data;
-            const genres = new Set()
-
-            data.filter(item => genres.add(item.name))
-            RenderGanreListFunc(genres)
-        })
-
-        await axios.get(`${API}/anime`).then(response => {
-            const data = response.data;
-
-            const genres = new Set()
-
-            data.forEach(item => genres.add(item.ganre));
-
-            RenderGanreListFunc(genres)
-        })
+        RenderGanreListFunc()
 
         categoryTitle?.addEventListener("input", () => {
             DisbleFunc(inputArray, categoryAddBtn)
@@ -103,6 +85,8 @@ const AdminScriptFunc = () => {
                     RenderCategoriesFunc(data, tableContainer)
                 })
 
+                RenderGanreListFunc()
+
                 await axios.get(`${API}/categories/`).then(response => {
                     const data = response.data;
                     RenderSelectFunc(data, select)
@@ -110,7 +94,7 @@ const AdminScriptFunc = () => {
 
                 categoryTitle.value = ""
                 categoryImage.value = ""
-            })
+            }).catch(error => {alert(`ERROR: error on posting category`); console.error(error)})
         })
 
         tableContainer?.addEventListener("click", e => {
@@ -126,6 +110,8 @@ const AdminScriptFunc = () => {
                         const data = response.data;
                         RenderCategoriesFunc(data, tableContainer)
                     })
+
+                    RenderGanreListFunc()
 
                     axios.get(`${API}/categories/`).then(response => {
                         const data = response.data;
@@ -295,7 +281,7 @@ const AdminScriptFunc = () => {
 
                     RenderVideosFunc(data, videoContainer)
                 })
-            }).catch((error) => { alert(`ERROR: error on adding video`); console.log(error) })
+            }).catch((error) => { alert(`ERROR: error on adding video`); console.error(error) })
         })
 
         videoContainer.addEventListener("click", e => {
