@@ -107,7 +107,7 @@ const CategoriesDataFunc = async () => {
             RenderAnimeList(data, ganres)
         }
 
-        RenderGanreListFunc(ganres)
+        RenderGanreListFunc()
     }).catch(error =>{
         throw new Error(error)
     })

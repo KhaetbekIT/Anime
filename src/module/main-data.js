@@ -101,7 +101,7 @@ const MainDataFunc = async () => {
 
         RenderAnimeList(data, ganres)
 
-        RenderGanreListFunc(ganres)
+        RenderGanreListFunc()
 
         PreloaderFunc()
     }).catch(error =>{

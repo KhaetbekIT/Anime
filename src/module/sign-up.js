@@ -53,7 +53,7 @@ const SignUpFunc = () => {
 
     addBtn?.addEventListener("click", (e) => {
         e.preventDefault()
-        axios.post(`${API}/admins/`, user).then(() => { alert("admin added"); window.location.replace("/") }).catch(error => alert(error))
+        axios.post(`${API}/admins/`, user).then(() => { alert("admin added"); window.location.replace("/") }).catch(error => {alert(`ERROR: error on adding admin.`); console.error(error)})
     })
 }
 
