@@ -1,20 +1,9 @@
 import axios from "axios"
 import { API } from "./api"
 import { PreloaderFunc } from "./preloder"
+import RenderGanreListFunc from "./admin/categories-lists"
 
 const DetailDataFunc = async () => {
-
-    const RenderGanreList = (ganres) => {
-        const dropDownBlock = document.querySelector("#dropdown-js")
-
-        dropDownBlock.innerHTML = ""
-
-        ganres.forEach(ganre => {
-            dropDownBlock.insertAdjacentHTML("beforeend", `
-                <li><a href="./categories.html?ganre=${ganre}">${ganre}</a></li>
-            `)
-        })
-    }
 
     const RenderAnimeDetails = (array = [], itemId = 1) => {
         const animeObject = array.find(item => item.id == itemId)
@@ -29,39 +18,56 @@ const DetailDataFunc = async () => {
         const videoBackdrop = document.querySelector("#video-backdrop")
         const video = videoBackdrop.querySelector("#video")
 
-        if (animeObject) {
-            imageBlock.dataset.setbg = animeObject.image
-            viewBlock.innerHTML = ""
-            viewBlock.insertAdjacentHTML("beforeend", `
-                <i class="fa fa-eye"> ${animeObject.views} </i>
-            `)
+        const breadcrumbLinks = document.querySelector("#breadcrumb__links-js > span")
 
-            titleBlock.innerHTML = ""
+        try {
+            if (animeObject) {
+                breadcrumbLinks.textContent = animeObject.ganre
+                imageBlock.dataset.setbg = animeObject.image
+                viewBlock.innerHTML = ""
+                viewBlock.insertAdjacentHTML("beforeend", `
+                    <i class="fa fa-eye"> ${animeObject.views} </i>
+                `)
 
-            titleBlock.insertAdjacentHTML("beforeend", `
-                <h3> ${animeObject.title} </h3>
-                <span> ${animeObject['original-title']} </span>
-            `)
+                titleBlock.innerHTML = ""
 
-            desc.textContent = animeObject.description
+                titleBlock.insertAdjacentHTML("beforeend", `
+                    <h3> ${animeObject.title} </h3>
+                    <span> ${animeObject['original-title']} </span>
+                `)
 
-            widgetList.innerHTML = ""
+                desc.textContent = animeObject.description
 
-            widgetList.insertAdjacentHTML("beforeend", `
-                <ul>
-                    <li><span>Date aired:</span> ${animeObject.date}</li>
-                    <li><span>Status:</span> ${animeObject.rating} </li>
-                    <li><span>Genre:</span> ${animeObject.tags.join(", \t")} </li>
-                </ul>
-            `)
+                widgetList.innerHTML = ""
 
-            breadCrumb.textContent = animeObject.ganre
+                widgetList.insertAdjacentHTML("beforeend", `
+                    <ul>
+                        <li><span>Date aired:</span> ${animeObject.date}</li>
+                        <li><span>Status:</span> ${animeObject.rating} </li>
+                        <li><span>Genre:</span> ${animeObject.tags.join(", \t")} </li>
+                    </ul>
+                `)
 
-            document.querySelectorAll('.set-bg').forEach(element => element.style.backgroundImage = `url(${element.dataset.setbg})`)
+                breadCrumb.textContent = animeObject.ganre
 
-            PreloaderFunc()
-        } else {
-            console.log("error 2");
+                document.querySelectorAll('.set-bg').forEach(element => element.style.backgroundImage = `url(${element.dataset.setbg})`)
+
+                video?.setAttribute("src", animeObject.video)
+
+                axios.get(`${API}/categories/`).then(response => {
+                    const data = response.data;
+
+                    data.forEach(item => {
+                        if(item.name === animeObject.ganre){
+                            video?.setAttribute("poster", animeObject.image)
+                        }
+                    })
+                })
+
+                PreloaderFunc()
+            }
+        } catch (error) {
+            console.log(error);
         }
 
         imageBlock?.addEventListener("click", () => {
@@ -78,7 +84,7 @@ const DetailDataFunc = async () => {
         })
     }
 
-    await axios.get(API + "/anime").then(response => {
+    await axios.get(`${API}/anime/`).then(response => {
         const data = response.data;
 
         const ganres = new Set()
@@ -93,7 +99,8 @@ const DetailDataFunc = async () => {
             window.location.replace("/categories.html")
         }
 
-        RenderGanreList(ganres)
+        RenderGanreListFunc()
+
     }).catch(error => {
         throw new Error(error)
     })

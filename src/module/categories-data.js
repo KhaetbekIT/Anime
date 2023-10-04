@@ -4,7 +4,7 @@ import RenderGanreListFunc from "./admin/categories-lists"
 
 const CategoriesDataFunc = async () => {
 
-    const RenderAnimeList = (array = [], ganres = {}) => {
+    const RenderAnimeList = (array = [], ganres = []) => {
         const container = document.querySelector("#product-container-js")
 
         container.innerHTML = ""
@@ -87,15 +87,13 @@ const CategoriesDataFunc = async () => {
         container.querySelectorAll('.set-bg').forEach(element => element.style.backgroundImage = `url(${element.dataset.setbg})`)
     }
 
-    await axios.get(API + "/anime").then(response => {
+    await axios.get(`${API}/anime/`).then(response => {
 
         const data = response.data;
 
         const ganres = new Set()
 
         const ganreParams = new URLSearchParams(window.location.search).get('ganre')
-
-
 
         data.forEach(item => ganres.add(item.ganre))
 

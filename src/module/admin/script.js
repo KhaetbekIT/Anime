@@ -94,7 +94,7 @@ const AdminScriptFunc = () => {
 
                 categoryTitle.value = ""
                 categoryImage.value = ""
-            }).catch(error => {alert(`ERROR: error on posting category`); console.error(error)})
+            }).catch(error => { alert(`ERROR: error on posting category`); console.error(error) })
         })
 
         tableContainer?.addEventListener("click", e => {
@@ -249,13 +249,13 @@ const AdminScriptFunc = () => {
                     let videoBlob = new Blob([new Uint8Array(animeItem.video)], { type: 'video/mp4' });
 
                     animeItem.video = window.URL.createObjectURL(videoBlob);
-                })
+                }, false)
 
                 fileReader.addEventListener("error", () => {
                     animeItem.video = undefined
                     videoFile.value = ""
                     alert(`ERROR: error onload file. Try again!`)
-                })
+                }, false)
 
                 fileReader.readAsDataURL(file)
 
@@ -273,7 +273,7 @@ const AdminScriptFunc = () => {
 
         addVideoBtn?.addEventListener("click", () => {
 
-            axios.post(`${API}/anime/`, animeItem,).then((response) => {
+            axios.post(`${API}/anime/`, animeItem).then(() => {
                 alert(`VIDEO WAS ADDED`)
 
                 axios.get(`${API}/anime/`).then(response => {
@@ -281,10 +281,21 @@ const AdminScriptFunc = () => {
 
                     RenderVideosFunc(data, videoContainer)
                 })
+
+                image.value = ""
+                title.value = ""
+                originalTitle.value = ""
+                tags.value = ""
+                year.value = ""
+                videoFile.value = ""
+                select.value = "default"
+                rating.value = ""
+                desc.value = ""
+
             }).catch((error) => { alert(`ERROR: error on adding video`); console.error(error) })
         })
 
-        videoContainer.addEventListener("click", e => {
+        videoContainer?.addEventListener("click", e => {
             if (e.target && e.target.tagName === "BUTTON") {
                 const target = e.target
 
